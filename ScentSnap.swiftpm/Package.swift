@@ -33,9 +33,15 @@ let package = Package(
             ]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/SwiftUIX/SwiftUIX", "0.1.4"..<"1.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "SwiftUIX", package: "swiftuix")
+            ],
             path: "."
         )
     ]
