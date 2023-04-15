@@ -17,7 +17,7 @@ struct MeshGradient: View {
         ZStack {
             Circle()
                 .fill(Color.red)
-                .frame(width: 200, height: 200)
+                .frame(width: 250, height: 250)
                 .position(redPosition)
                 .onAppear {
                     self.moveCircle(for: .red)
@@ -25,7 +25,7 @@ struct MeshGradient: View {
             
             Circle()
                 .fill(Color.blue)
-                .frame(width: 200, height: 200)
+                .frame(width: 250, height: 250)
                 .position(bluePosition)
                 .onAppear {
                     self.moveCircle(for: .blue)
@@ -33,18 +33,18 @@ struct MeshGradient: View {
             
             Circle()
                 .fill(Color.purple)
-                .frame(width: 200, height: 200)
+                .frame(width: 250, height: 250)
                 .position(purplePosition)
                 .onAppear {
                     self.moveCircle(for: .purple)
                 }
         }
-        .blur(radius: 120.0)
+        .blur(radius: 150.0)
     }
     
     func moveCircle(for color: UIColor) {
-        let randomX = CGFloat.random(in: -50...300)
-        let randomY = CGFloat.random(in: -50...450)
+        let randomX = CGFloat.random(in: -50...475)
+        let randomY = CGFloat.random(in: -50...600)
         let newPosition = CGPoint(x: randomX, y: randomY)
         withAnimation(.linear(duration: 3.0)) {
             switch color {
@@ -58,7 +58,7 @@ struct MeshGradient: View {
                 break
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.moveCircle(for: color)
         }
     }
