@@ -18,7 +18,7 @@ struct LabelView: View {
                     Text("Hello, World!")
                         .font(.largeTitle)
                         .padding()
-                    Text("Whrite a short description 지후니 바보 리라밖에 모르는 바보")
+                    Text("Whrite a short description of the scent.")
                         .padding()
                         .font(.body)
                 }
