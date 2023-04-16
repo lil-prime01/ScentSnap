@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LabelView: View {
+    var scentdata: ScentData
+    
     var body: some View {
         Rectangle()
             .fill(Color.white)
@@ -15,12 +17,15 @@ struct LabelView: View {
             .border(.black, width: 10)
             .overlay(
                 VStack{
-                    Text("Hello, World!")
+                    Text(scentdata.name)
                         .font(.largeTitle)
                         .padding()
-                    Text("Whrite a short description of the scent.")
+                    Text(scentdata.description)
                         .padding()
                         .font(.body)
+                    Text(scentdata.location)
+                        .padding()
+                        .font(.caption)
                 }
             )
     }
@@ -28,6 +33,7 @@ struct LabelView: View {
 
 struct LabelView_Previews: PreviewProvider {
     static var previews: some View {
-        LabelView()
+        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
+        return LabelView(scentdata: scentdata)
     }
 }
