@@ -38,7 +38,8 @@ struct ScentData: Identifiable {
     var slider1: Double
     var slider2: Double
     var slider3: Double
-
+    var imageData: Data?
+    
     var color1: Color {
         Color(
             .sRGB,

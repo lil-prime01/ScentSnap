@@ -10,11 +10,12 @@ import SwiftUI
 struct PerfumeView: View {
     var scentdata: ScentData
     var body: some View {
-        Image("perfume")
-            .overlay(CardView(scentdata: scentdata).offset(y: 51)
-                .overlay(LabelView(scentdata: scentdata).offset(y:45)
-                        )
-            )
+        NavigationLink(destination: ImageView(scentdata: scentdata)) {
+            Image("perfume")
+                .overlay(CardView(scentdata: scentdata).offset(y: 51)
+                    .overlay(LabelView(scentdata: scentdata).offset(y:45))
+                )
+        }
     }
 }
 
@@ -24,3 +25,18 @@ struct PerfumeView_Previews: PreviewProvider {
         PerfumeView(scentdata: scentdata)
     }
 }
+
+//
+//    var body: some View {
+//        VStack {
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                HStack(spacing: 50) {
+//                    NavigationLink(destination: ImageView(scentdata: scentdata)) {
+//                        ForEach(scents) { scentdata in
+//                            PerfumeView(scentdata: scentdata)
+//                        }
+//                    }
+//                }
+//                .padding()
+//            }
+//

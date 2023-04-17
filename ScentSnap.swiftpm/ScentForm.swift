@@ -10,7 +10,8 @@ import SwiftUI
 struct ScentForm: View {
     @Binding var scents: [ScentData]
     @Environment (\.presentationMode) var presentationMode
-    
+    @State private var isShowingImagePicker = false
+    @State private var image: UIImage? = nil
     @State private var name = ""
     @State private var description = ""
     @State private var location = ""
@@ -38,6 +39,27 @@ struct ScentForm: View {
                 Section(header: Text("Feeling3")) {
                     Slider(value: $slider3)
                 }
+                Section(header: Text("Image")) {
+                    if let image = image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding()
+                    } else {
+                        Text("No image selected")
+                    }
+                    Button(action: {
+                        isShowingImagePicker = true
+                    }) {
+                        Text("Choose Image")
+                    }
+                }
+                .sheet(isPresented: $isShowingImagePicker) {
+                    ImagePicker(image: $image)
+                }
+
                 Button(action: addContact) {
                     Text("Add Scent")
                 }
@@ -45,6 +67,7 @@ struct ScentForm: View {
     }
     
     private func addContact() {
+        let imageData = image?.jpegData(compressionQuality: 1.0)
         let newScent = ScentData(name: name, description: description, location: location, slider1: slider1, slider2: slider2, slider3: slider3)
         scents.append(newScent)
         presentationMode.wrappedValue.dismiss()
