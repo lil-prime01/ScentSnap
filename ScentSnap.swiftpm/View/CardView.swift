@@ -14,20 +14,42 @@
 
 import SwiftUI
 
-struct CardView: View {
-    var scentdata:ScentData
+struct InnerShadow: ViewModifier {
+    var color: Color = .black
+    var radius: CGFloat = 0.1
+    var opacity: Double = 0.1
     
-    var body: some View {
-        VStack{
-            MeshGradient(scentdata: scentdata)
-                .cornerRadius(15)
-                .frame(width: 425, height: 550,alignment: .center)
-            
-        }
-
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(color.opacity(opacity), lineWidth: radius)
+                    .blur(radius: radius)
+                    .offset(x: radius, y: radius)
+                    .mask(RoundedRectangle(cornerRadius: 15).fill(LinearGradient(gradient: Gradient(colors: [Color.black, .clear]), startPoint: .topLeading, endPoint: .bottomTrailing)))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(color.opacity(opacity), lineWidth: radius)
+                    .blur(radius: radius)
+                    .offset(x: -radius, y: -radius)
+                    .mask(RoundedRectangle(cornerRadius: 15).fill(LinearGradient(gradient: Gradient(colors: [Color.black, .clear]), startPoint: .bottomTrailing, endPoint: .topLeading)))
+            )
     }
 }
 
+struct CardView: View {
+    var scentdata: ScentData
+    
+    var body: some View {
+        VStack {
+            MeshGradient(scentdata: scentdata)
+                .cornerRadius(15)
+                .frame(width: 425, height: 550, alignment: .center)
+                .modifier(InnerShadow(radius: 5.0, opacity: 0.05))
+        }
+    }
+}
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {

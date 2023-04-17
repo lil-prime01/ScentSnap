@@ -16,8 +16,8 @@ struct PerfumeView: View {
                 isImageView.toggle()
             }) {
                 Image("perfume")
-                    .overlay(CardView(scentdata: scentdata).offset(y: 51)
-                        .overlay(LabelView(scentdata: scentdata).offset(y:45))
+                    .overlay(CardView(scentdata: scentdata).offset(y: 97)
+                        .overlay(LabelView(scentdata: scentdata).offset(y:95))
                     )
             }
             .fullScreenCover(isPresented: $isImageView) {
@@ -29,7 +29,7 @@ struct PerfumeView: View {
     
     struct PerfumeView_Previews: PreviewProvider {
         static var previews: some View {
-            let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
+            let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 0.0, slider3: 0.0)
             PerfumeView(scentdata: scentdata)
         }
     }
