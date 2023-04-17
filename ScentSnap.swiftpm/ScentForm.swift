@@ -68,7 +68,7 @@ struct ScentForm: View {
     
     private func addContact() {
         let imageData = image?.jpegData(compressionQuality: 1.0)
-        let newScent = ScentData(name: name, description: description, location: location, slider1: slider1, slider2: slider2, slider3: slider3)
+        let newScent = ScentData(name: name, description: description, location: location, slider1: slider1, slider2: slider2, slider3: slider3, imageData: imageData)
         scents.append(newScent)
         presentationMode.wrappedValue.dismiss()
     }

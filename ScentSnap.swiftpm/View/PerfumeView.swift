@@ -9,20 +9,29 @@ import SwiftUI
 
 struct PerfumeView: View {
     var scentdata: ScentData
+    @State public var isImageView: Bool = false
     var body: some View {
-        NavigationLink(destination: ImageView(scentdata: scentdata)) {
-            Image("perfume")
-                .overlay(CardView(scentdata: scentdata).offset(y: 51)
-                    .overlay(LabelView(scentdata: scentdata).offset(y:45))
-                )
+        VStack{
+            Button(action: {
+                isImageView.toggle()
+            }) {
+                Image("perfume")
+                    .overlay(CardView(scentdata: scentdata).offset(y: 51)
+                        .overlay(LabelView(scentdata: scentdata).offset(y:45))
+                    )
+            }
+            .fullScreenCover(isPresented: $isImageView) {
+                ImageView(scentdata: scentdata)
+            }
+            
         }
     }
-}
-
-struct PerfumeView_Previews: PreviewProvider {
-    static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
-        PerfumeView(scentdata: scentdata)
+    
+    struct PerfumeView_Previews: PreviewProvider {
+        static var previews: some View {
+            let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
+            PerfumeView(scentdata: scentdata)
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  ImageView.swift
 //  
 //
 //  Created by 박리라 on 2023/04/16.
@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageView: View {
     var scentdata: ScentData
+    @Environment(\.presentationMode) var presentationMode
     
     private var scentImage: UIImage? {
         guard let imageData = scentdata.imageData else { return nil }
@@ -28,12 +29,25 @@ struct ImageView: View {
                     .foregroundColor(.gray)
             }
         }
+        .overlay(ParticleEffect())
+        .overlay(
+            HStack {
+                Spacer()
+                VStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.black.opacity(0.6))
+                            .clipShape(Circle())
+                    }
+                    Spacer()
+                }
+            }
+        )
+//        .overlay(ParticleEffect())
         .navigationTitle(scentdata.name)
     }
 }
-    struct ImageView_Previews: PreviewProvider {
-        static var previews: some View {
-            let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
-            return ImageView(scentdata: scentdata)
-        }
-    }

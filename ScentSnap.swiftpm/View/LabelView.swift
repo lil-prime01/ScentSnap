@@ -13,19 +13,19 @@ struct LabelView: View {
     var body: some View {
         Rectangle()
             .fill(Color.white)
-            .frame(width: 250, height: 350)
+            .frame(width: 250, height: 300)
             .border(.black, width: 10)
             .overlay(
                 VStack{
                     Text(scentdata.name)
-                        .font(.largeTitle)
+                        .font(.largeTitle.bold())
                         .padding()
                     Text(scentdata.description)
                         .padding()
-                        .font(.body)
+                        .font(.body.bold())
                     Text(scentdata.location)
                         .padding()
-                        .font(.caption)
+                        .font(.caption.bold())
                 }
             )
     }

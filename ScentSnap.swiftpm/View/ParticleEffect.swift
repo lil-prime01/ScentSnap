@@ -13,7 +13,7 @@ struct ParticleEffect: View {
     
     var body: some View {
         ZStack {
-            Color.white
+            Color.white.opacity(0.001)
             
             if let location = touchLocation {
                 ParticleView(location: location)
