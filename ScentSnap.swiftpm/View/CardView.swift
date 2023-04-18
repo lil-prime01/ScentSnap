@@ -5,12 +5,6 @@
 //  Created by 박리라 on 2023/04/12.
 //
 
-//HStack(spacing: 20) {
-//    ForEach(contacts) { contact in
-//        ContactCard(contact: contact)
-//            .frame(width: 300)
-//    }
-//}
 
 import SwiftUI
 
@@ -37,7 +31,6 @@ struct InnerShadow: ViewModifier {
             )
     }
 }
-
 struct CardView: View {
     var scentdata: ScentData
     
@@ -46,14 +39,14 @@ struct CardView: View {
             MeshGradient(scentdata: scentdata)
                 .cornerRadius(15)
                 .frame(width: cardWidth, height: cardHeight*1.29, alignment: .center)
-                .modifier(InnerShadow(radius: 5.0, opacity: 0.3))
+                .modifier(InnerShadow(radius: 5.0, opacity: 0.05))
         }
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 0.0, slider2: 0.0, slider3: 0.0)
+        let scentdata = ScentData(name: "John", description: "hello",date: date, location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
         return CardView(scentdata: scentdata)
     }
 }

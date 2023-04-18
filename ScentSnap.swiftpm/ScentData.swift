@@ -1,6 +1,6 @@
 //
 //  Contact.swift
-//  
+//
 //
 //  Created by 박리라 on 2023/04/16.
 //
@@ -33,7 +33,7 @@ struct ScentData: Identifiable {
     var id = UUID()
     var name: String
     var description:String
-    //var date: Date
+    var date: Date
     var location: String
     var slider1: Double
     var slider2: Double

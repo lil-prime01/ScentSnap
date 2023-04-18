@@ -1,6 +1,6 @@
 //
 //  BlobView.swift
-//  
+//
 //
 //  Created by 박리라 on 2023/04/18.
 //
@@ -54,7 +54,7 @@ struct BlobView: View {
 
 struct BlobView_Previews: PreviewProvider {
     static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 0.0, slider2: 0.0, slider3: 0.0)
+        let scentdata = ScentData(name: "John", description: "hello", date: date, location: "dd", slider1: 0.0, slider2: 0.0, slider3: 0.0)
         return BlobView(scentdata: scentdata)
         
     }

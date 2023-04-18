@@ -18,6 +18,8 @@ struct ScentForm: View {
     @State private var slider1 = 0.0
     @State private var slider2 = 0.0
     @State private var slider3 = 0.0
+    @State public var date = Date()
+    
     
     var body: some View {
             Form {
@@ -30,6 +32,12 @@ struct ScentForm: View {
                 Section(header: Text("location")) {
                     TextField("Enter location", text: $location)
                 }
+                Section(header: Text("Date")) {
+                                    DatePicker(selection: $date, displayedComponents: .date) {
+                                        Text("Select date")
+                                    }
+                                }
+
                 Section(header: Text("Feeling1")) {
                     Slider(value: $slider1)
                 }
@@ -68,54 +76,9 @@ struct ScentForm: View {
     
     private func addContact() {
         let imageData = image?.jpegData(compressionQuality: 1.0)
-        let newScent = ScentData(name: name, description: description, location: location, slider1: slider1, slider2: slider2, slider3: slider3, imageData: imageData)
+        let newScent = ScentData(name: name, description: description, date: date, location: location, slider1: slider1, slider2: slider2, slider3: slider3, imageData: imageData)
         scents.append(newScent)
         presentationMode.wrappedValue.dismiss()
     }
 }
 
-
-/*
-import SwiftUI
-
-struct ContactForm: View {
-    @Binding var contacts: [Contact]
-    @Environment(\.presentationMode) var presentationMode
-    
-    @State private var name = ""
-    @State private var phoneNumber = ""
-    @State private var description = ""
-    @State private var sliderValue = 0.5
-    
-    var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Name")) {
-                    TextField("Enter name", text: $name)
-                }
-                Section(header: Text("Phone Number")) {
-                    TextField("Enter phone number", text: $phoneNumber)
-                        .keyboardType(.phonePad)
-                }
-                Section(header: Text("Description")) {
-                    TextField("Enter description", text: $description)
-                }
-                Section(header: Text("Slider Value")) {
-                    Slider(value: $sliderValue)
-                }
-                Button(action: addContact) {
-                    Text("Add Contact")
-                }
-            }
-            .navigationTitle("Add Contact")
-        }
-    }
-    
-    private func addContact() {
-        let newContact = Contact(name: name, phoneNumber: phoneNumber, description: description, sliderValue: sliderValue)
-        contacts.append(newContact)
-        presentationMode.wrappedValue.dismiss()
-    }
-
-}
-*/

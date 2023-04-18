@@ -26,9 +26,12 @@ struct PerfumeView: View {
     @State public var isImageView: Bool = false
     var body: some View {
         ZStack {
-            BlobView(scentdata: scentdata)
-                .offset(y: -300)
-                .scaleEffect(3)
+            Rectangle()
+                .frame(width: 20, height: 20)
+                .background(
+                    BlobView(scentdata: scentdata)
+                        .offset(y: -300)
+                        .scaleEffect(3))
             VStack{
                 Button(action: {
                     isImageView.toggle()
@@ -53,10 +56,9 @@ struct PerfumeView: View {
         }
     }
 }
-
 struct PerfumeView_Previews: PreviewProvider {
     static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 0.0, slider3: 0.0)
+        let scentdata = ScentData(name: "John", description: "hello", date: date, location: "dd", slider1: 1.0, slider2: 0.0, slider3: 0.0)
         PerfumeView(scentdata: scentdata)
     }
 }

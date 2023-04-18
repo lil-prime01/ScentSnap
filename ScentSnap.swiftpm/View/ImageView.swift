@@ -1,6 +1,6 @@
 //
 //  ImageView.swift
-//  
+//
 //
 //  Created by 박리라 on 2023/04/16.
 //
@@ -47,7 +47,6 @@ struct ImageView: View {
                 }
             }
         )
-//        .overlay(ParticleEffect())
         .navigationTitle(scentdata.name)
     }
 }
