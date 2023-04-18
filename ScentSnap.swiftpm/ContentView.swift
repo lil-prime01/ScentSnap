@@ -6,17 +6,19 @@ struct ContentView: View {
     @State private var isOnboardingCompleted: Bool = false
     
     var body: some View {
-        Group {
-            if !isOnboardingCompleted {
-                OnboardingView {
-                    isOnboardingCompleted = true
+            Group {
+                if !isOnboardingCompleted {
+                    OnboardingView {
+                        withAnimation(.easeInOut(duration: 2)) { // Increase the duration to 2 for a slower transition
+                            isOnboardingCompleted = true
+                        }
+                    }
+                } else {
+                    mainAppView
                 }
-            } else {
-                mainAppView
             }
+            .accentColor(.black)
         }
-        .accentColor(.black)
-    }
     var mainAppView: some View {
         VStack {
             Spacer(minLength: screenHeight*0.1)
@@ -32,7 +34,7 @@ struct ContentView: View {
                 }
                 .onAppear {
                     UIScrollView.appearance().isPagingEnabled = true
-                    AudioManager.shared.playBackgroundMusic(filename: "BackgroundMusic", fileExtension: "mp3")
+                    AudioManager.shared.startBackgroundMusic(filename: "BackgroundMusic", fileExtension: "mp3") // Call the startBackgroundMusic function
                 }
             }
         

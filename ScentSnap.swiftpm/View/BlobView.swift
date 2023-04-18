@@ -28,7 +28,7 @@ struct BlobView: View {
             .rotationEffect(.degrees(appear ? 360 : 0))
         }
         .blur(radius: 10)
-        .opacity(0.2)
+        .opacity(0.1)
         .onAppear {
             withAnimation(.linear(duration: 30).repeatForever()) {
                 appear = true

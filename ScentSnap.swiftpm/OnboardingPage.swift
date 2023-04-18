@@ -11,33 +11,38 @@ struct OnboardingPage: View {
     var title: String
     var action: () -> Void
     @State private var showText = true
+    @State private var isTextFullyDisplayed = false
     
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
             VStack {
+                Spacer()
+                
                 if showText {
-                    TypingText(text: title, onDisappear: { showText = false })
+                    TypingText(text: title, onDisappear: { showText = false }, isTextFullyDisplayed: $isTextFullyDisplayed)
                 }
                 
                 Spacer()
                 
-                Button(action: {
-                    withAnimation {
-                        showText = false
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        action()
-                    }
-                }, label: {
-                    Text("Next")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                })
+                if isTextFullyDisplayed {
+                    Button(action: {
+                        withAnimation {
+                            showText = false
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            action()
+                        }
+                    }, label: {
+                        Text("Next")
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    })
+                }
             }
             .onAppear {
                 showText = true
