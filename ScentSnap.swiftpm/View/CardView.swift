@@ -1,6 +1,6 @@
 //
 //  CardView.swift
-//  
+//
 //
 //  Created by 박리라 on 2023/04/12.
 //
@@ -45,15 +45,15 @@ struct CardView: View {
         VStack {
             MeshGradient(scentdata: scentdata)
                 .cornerRadius(15)
-                .frame(width: 425, height: 550, alignment: .center)
-                .modifier(InnerShadow(radius: 5.0, opacity: 0.05))
+                .frame(width: cardWidth, height: cardHeight*1.29, alignment: .center)
+                .modifier(InnerShadow(radius: 5.0, opacity: 0.3))
         }
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
+        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 0.0, slider2: 0.0, slider3: 0.0)
         return CardView(scentdata: scentdata)
     }
 }

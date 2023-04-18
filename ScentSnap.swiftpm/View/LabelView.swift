@@ -1,6 +1,6 @@
 //
 //  LabelView.swift
-//  
+//
 //
 //  Created by 박리라 on 2023/04/15.
 //
@@ -13,7 +13,7 @@ struct LabelView: View {
     var body: some View {
         Rectangle()
             .fill(Color.white)
-            .frame(width: 250, height: 300)
+            .frame(width: labelWidth, height:labelHeight*1.5)
             .border(.black, width: 10)
             .overlay(
                 VStack{

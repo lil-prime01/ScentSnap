@@ -71,7 +71,7 @@ struct MeshGradient: View {
 
 struct MeshGradient_Previews: PreviewProvider {
     static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 1.0, slider2: 1.0, slider3: 1.0)
+        let scentdata = ScentData(name: "John", description: "hello", location: "dd", slider1: 0.0, slider2: 0.0, slider3: 0.0)
         return MeshGradient(scentdata: scentdata)
     }
 }

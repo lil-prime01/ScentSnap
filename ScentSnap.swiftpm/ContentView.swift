@@ -6,14 +6,25 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 50) {
-                    ForEach(scents) { scentdata in
-                        PerfumeView(scentdata: scentdata)
+            GeometryReader { proxi in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: space) {
+                        ForEach(scents) { scentdata in
+                            PerfumeView(scentdata: scentdata)
+                        }
                     }
                 }
-                .padding()
+                .onAppear { UIScrollView.appearance().isPagingEnabled = true }
             }
+        
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                HStack(spacing: space) {
+//                    ForEach(scents) { scentdata in
+//                        PerfumeView(scentdata: scentdata)
+//                    }
+//                }
+//                .padding()
+//            }
             Button(action: {
                 isScentFormPresented.toggle()
             }) {
