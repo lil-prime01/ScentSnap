@@ -25,24 +25,24 @@ struct LabelView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 15)
             .fill(Color.white)
-            .frame(width: labelWidth, height:labelHeight*1.5)
+            .frame(width: labelWidth, height:labelHeight*1.3)
             .overlay(
-                    RoundedRectangle(cornerRadius: 15) // Apply the corner radius to the border
-                        .stroke(Color.black, lineWidth: bord) // Set border color and width
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.black, lineWidth: 10)
                 )
             .overlay(
                 VStack{
                     Text(scentdata.name)
                         .font(.system(size:titleSize ).bold())
-                        .padding()
+                        .padding(5)
                     Text(scentdata.description)
-                        .padding()
+                        .padding(15)
                         .font(.system(size:titleSize*0.5).bold())
-                        .padding()
+                        .padding(15)
                     Text("\(formatDate(scentdata.date))")
-                        .padding()
+                        .padding(5)
                         .font(.system(size:titleSize*0.5).bold())
-                        .padding()
+                        .padding(5)
                     HStack{
                         Image("mapicon")
                             .resizable()

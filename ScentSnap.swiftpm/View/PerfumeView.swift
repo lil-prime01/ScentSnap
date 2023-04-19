@@ -10,12 +10,12 @@ import UIKit
 
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
-var perfumeWidth = screenWidth*0.6
+var perfumeWidth = screenWidth*0.5
 var perfumeHeight = perfumeWidth * 1.77
 
 var space = screenWidth * 0.2
 
-var cardWidth = perfumeWidth * 0.85
+var cardWidth = perfumeWidth * 0.88
 var cardHeight = cardWidth * 0.978
 
 var labelWidth = perfumeWidth * 0.5
@@ -52,6 +52,7 @@ struct PerfumeView: View {
         }
     }
 }
+
 struct PerfumeView_Previews: PreviewProvider {
     static var previews: some View {
         let scentdata = ScentData(name: "John", description: "hello", date: date, location: "dd", slider1: 1.0, slider2: 0.0, slider3: 0.0)
