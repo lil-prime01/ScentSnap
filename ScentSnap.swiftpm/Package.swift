@@ -42,7 +42,10 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftUIX", package: "swiftuix")
             ],
-            path: "."
+            path: ".",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )

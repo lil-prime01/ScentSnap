@@ -33,7 +33,7 @@ struct ContentView: View {
                 }
                 .onAppear {
                     UIScrollView.appearance().isPagingEnabled = true
-                    AudioManager.shared.startBackgroundMusic(filename: "BackgroundMusic", fileExtension: "mp3") // Call the startBackgroundMusic function
+                    AudioManager.shared.startBackgroundMusic(filename: "BackgroundMusic", fileExtension: "mp3")
                 }
             }
             .offset(y:-50)
