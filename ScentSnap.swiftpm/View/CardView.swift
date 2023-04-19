@@ -39,7 +39,7 @@ struct CardView: View {
             MeshGradient(scentdata: scentdata)
                 .cornerRadius(15)
                 .frame(width: cardWidth, height: cardHeight*1.29, alignment: .center)
-                .modifier(InnerShadow(radius: 5.0, opacity: 0.05))
+                .modifier(InnerShadow(radius: 10.0, opacity: 0.05))
         }
     }
 }

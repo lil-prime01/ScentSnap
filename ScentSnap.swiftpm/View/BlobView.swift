@@ -34,6 +34,11 @@ struct BlobView: View {
                 appear = true
             }
         }
+        .offset(y: -300)
+        .scaleEffect(3)
+        .frame(width: screenWidth, height: screenHeight)
+        .clipped() // Add this to apply the cropping
+
     }
     
     func path(in rect: CGRect, x: Double, x2: Double, x3: Double) -> Path {

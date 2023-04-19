@@ -26,12 +26,7 @@ struct PerfumeView: View {
     @State public var isImageView: Bool = false
     var body: some View {
         ZStack {
-            Rectangle()
-                .frame(width: 20, height: 20)
-                .background(
-                    BlobView(scentdata: scentdata)
-                        .offset(y: -300)
-                        .scaleEffect(3))
+            BlobView(scentdata: scentdata)
             VStack{
                 Button(action: {
                     isImageView.toggle()
@@ -53,6 +48,7 @@ struct PerfumeView: View {
                 }
                 
             }
+             
         }
     }
 }

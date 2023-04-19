@@ -22,7 +22,7 @@ struct MeshGradient: View {
         ZStack {
             Circle()
                 .fill(scentdata.color1)
-                .frame(width: 200, height: 200)
+                .frame(width: 230, height: 230)
                 .position(circle1Position)
                 .onAppear {
                     self.moveCircle(for: 0) // Update the identifier
@@ -30,7 +30,7 @@ struct MeshGradient: View {
             
             Circle()
                 .fill(scentdata.color2)
-                .frame(width: 200, height: 200)
+                .frame(width: 230, height: 230)
                 .position(circle2Position)
                 .onAppear {
                     self.moveCircle(for: 1) // Update the identifier
@@ -38,7 +38,7 @@ struct MeshGradient: View {
             
             Circle()
                 .fill(scentdata.color3)
-                .frame(width: 200, height: 200)
+                .frame(width: 230, height: 230)
                 .position(circle3Position)
                 .onAppear {
                     self.moveCircle(for: 2) // Update the identifier

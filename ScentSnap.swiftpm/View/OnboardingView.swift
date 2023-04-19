@@ -19,16 +19,16 @@ struct OnboardingView: View {
     var body: some View {
         Group {
             if currentPage == 0 {
-                OnboardingPage(title: "The sense of smell is invisible to our eyes,\nbut it has the power to control people's living space unconsciously.") {
+                OnboardingPage(title: "The sense of smell has the power to control people's living space unconsciously.") {
                     currentPage += 1
                 }
                 .onAppear(perform: playBackgroundMusic)
             } else if currentPage == 1 {
-                OnboardingPage(title: "Unlike vision and hearing, olfactory sense does not have terms or codes that can be expressed or described.\nHowever, smell adds emotion to memory.") {
+                OnboardingPage(title: "Smell adds emotion to memory.") {
                     currentPage += 1
                 }
             } else {
-                OnboardingPage(title: "So I came up with a <ScentSnap> application that reads the person's emotions, brings back memories, and records the scent with images.") {
+                OnboardingPage(title: "I can snap your scent with your memory.") {
                     onCompleted()
                 }
             }
