@@ -29,7 +29,7 @@ struct ImageView: View {
                     .foregroundColor(.gray)
             }
         }
-        .overlay(ParticleEffect())
+        .overlay(ParticleEffect(scentdata:scentdata))
         .overlay(
             HStack {
                 Spacer()

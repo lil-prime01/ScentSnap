@@ -39,7 +39,7 @@ struct OnboardingPage: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .padding()
-                            .background(Color.blue)
+                            .background(Color.gray)
                             .cornerRadius(10)
                     })
                 }

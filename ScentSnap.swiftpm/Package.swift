@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Scent",
+    name: "ScentSnap",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "Scent",
+            name: "ScentSnap",
             targets: ["AppModule"],
             bundleIdentifier: "com.example.apple-samplecode.ScentSnap",
             teamIdentifier: "7CMX7X25RA",

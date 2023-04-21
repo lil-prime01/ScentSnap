@@ -55,7 +55,7 @@ struct PerfumeView: View {
 
 struct PerfumeView_Previews: PreviewProvider {
     static var previews: some View {
-        let scentdata = ScentData(name: "John", description: "hello", date: date, location: "dd", slider1: 1.0, slider2: 0.0, slider3: 0.0)
+        let scentdata = ScentData(name: "John", description: "hello", date: date, location: "dd", slider1: 0.1, slider2: 0.9, slider3: 0.3)
         PerfumeView(scentdata: scentdata)
     }
 }

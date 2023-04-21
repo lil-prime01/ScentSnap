@@ -38,13 +38,13 @@ struct ScentForm: View {
                                     }
                                 }
 
-                Section(header: Text("Feeling1")) {
+                Section(header: Text("Warmth")) {
                     Slider(value: $slider1)
                 }
-                Section(header: Text("Feeling2")) {
+                Section(header: Text("Lightness")) {
                     Slider(value: $slider2)
                 }
-                Section(header: Text("Feeling3")) {
+                Section(header: Text("Softness")) {
                     Slider(value: $slider3)
                 }
                 Section(header: Text("Image")) {

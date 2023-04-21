@@ -19,16 +19,16 @@ struct ScentData: Identifiable {
     let red2_0 = 255.0
     let red2_1 = 0.0
     let green2_0 = 255.0
-    let green2_1 = 255.0
+    let green2_1 = 0.0
     let blue2_0 = 0.0
-    let blue2_1 = 255.0
+    let blue2_1 = 50.0
 
-    let red3_0 = 0.0
-    let red3_1 = 255.0
-    let green3_0 = 255.0
-    let green3_1 = 0.0
-    let blue3_0 = 0.0
-    let blue3_1 = 255.0
+    let red3_0 = 255.0
+    let red3_1 = 0.0
+    let green3_0 = 200.0
+    let green3_1 = 150.0
+    let blue3_0 = 200.0
+    let blue3_1 = 100.0
     
     var id = UUID()
     var name: String

@@ -6,8 +6,11 @@ struct ContentView: View {
     @State private var isScentFormPresented: Bool = false
     @State private var isOnboardingCompleted: Bool = false
     @State public var currentIndex = 0
+
     
+   
     var body: some View {
+        
                     Group {
                         if !isOnboardingCompleted {
                             OnboardingView {
@@ -26,6 +29,7 @@ struct ContentView: View {
         
         
         ZStack {
+            
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing:0) {
                         ForEach(scents) { scentdata in
@@ -57,7 +61,9 @@ struct ContentView: View {
                 }
             .offset(y:-50)
             .coordinateSpace(name: "scroll")
-            
+            .onAppear {
+                        sampleAdd()
+                    }
             
             Button(action: {
                 isScentFormPresented.toggle()
@@ -73,12 +79,60 @@ struct ContentView: View {
                             .colorMultiply(.white)
                     )
             }
-            .offset(y:553)
+            .offset(y:533)
             .sheet(isPresented: $isScentFormPresented) {
                 ScentForm(scents: $scents)
             }
         }
     }
+    public func sampleAdd(){
+        let sampleImage1 = UIImage(named: "My Mom")
+        let imageData1 = sampleImage1?.jpegData(compressionQuality: 1.0)
+        
+        let sampleImage2 = UIImage(named: "The Barber Shop")
+        let imageData2 = sampleImage2?.jpegData(compressionQuality: 1.0)
+        
+        let sampleImage3 = UIImage(named: "Moist Garden")
+        let imageData3 = sampleImage3?.jpegData(compressionQuality: 1.0)
+
+        let scent1 = ScentData(
+            name: "My Mom",
+            description: "The scent of being with my mom when I was young",
+            date: Date(),
+            location: "Los Angeles, California",
+            slider1: 1.0,
+            slider2: 1.0,
+            slider3: 1.0,
+            imageData: imageData1
+        )
+        
+        let scent2 = ScentData(
+            name: "The Barber Shop",
+            description: "The barber shop I went with my dad",
+            date: Date(),
+            location: "San Francisco, California",
+            slider1: 0.0,
+            slider2: 0.0,
+            slider3: 0.0,
+            imageData: imageData2
+        )
+        
+        let scent3 = ScentData(
+            name: "Moist Garden",
+            description: "A refreshing scent from the lawn",
+            date: Date(),
+            location: "UCLA, California",
+            slider1: 0.1,
+            slider2: 0.9,
+            slider3: 0.3,
+            imageData: imageData3
+        )
+
+        scents.append(scent1)
+        scents.append(scent2)
+        scents.append(scent3)
+    }
+
 }
 
 
@@ -89,3 +143,4 @@ struct ViewOffsetKey: PreferenceKey {
         value += nextValue()
     }
 }
+

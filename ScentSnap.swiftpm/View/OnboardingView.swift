@@ -19,16 +19,16 @@ struct OnboardingView: View {
     var body: some View {
         Group {
             if currentPage == 0 {
-                OnboardingPage(title: "The sense of smell has the power to control people's living space unconsciously.") {
+                OnboardingPage(title: "The sense of scent has the power to control our emotion.") {
                     currentPage += 1
                 }
                 .onAppear(perform: playBackgroundMusic)
             } else if currentPage == 1 {
-                OnboardingPage(title: "Smell adds emotion to memory.") {
+                OnboardingPage(title: "Scent adds emotion to your memory.") {
                     currentPage += 1
                 }
             } else {
-                OnboardingPage(title: "I can snap your scent with your memory.") {
+                OnboardingPage(title: "Snap your scent with your memory.") {
                     onCompleted()
                 }
             }
